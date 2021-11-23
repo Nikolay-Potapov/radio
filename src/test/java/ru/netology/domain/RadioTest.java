@@ -12,7 +12,7 @@ class RadioTest {
         radio.setMaxStation(10);
         radio.setMinStation(0);
         radio.setCurrentStation(10);
-        assertEquals(1, radio.getCurrentStation());
+        assertEquals(10, radio.getCurrentStation());
     }
 
     @Test
