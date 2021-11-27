@@ -23,6 +23,7 @@ class RadioTest {
         radio.setCurrentStation(10);
         assertEquals(0, radio.getCurrentStation());
     }
+
     @Test
     public void indicateMinTheStationNumber() {
         Radio radio = new Radio();
@@ -37,7 +38,7 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setMaxStation(10);
         radio.setMinStation(0);
-        radio.increaseStation(10);
+        radio.increaseStation();
         assertEquals(1, radio.getCurrentStation());
     }
 
@@ -46,19 +47,11 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setMaxStation(10);
         radio.setMinStation(0);
-        radio.turnDownTheStation(1);
+        radio.turnDownTheStation();
         assertEquals(1, radio.getCurrentStation());
     }
 
 //////////////////Volume//////////////////////
-    @Test
-    public void setVolumeLevel() {
-        Radio radio = new Radio();
-        radio.setMaxVolume(10);
-        radio.setMinVolume(0);
-        radio.setCurrentVolume(11);
-        assertEquals(0, radio.getCurrentVolume());
-    }
 
     @Test
     public void increaseInSoundLevel() {
@@ -79,3 +72,4 @@ class RadioTest {
     }
 
 }
+
