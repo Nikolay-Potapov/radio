@@ -6,31 +6,30 @@ public class Radio {
     private int maxStation;
     private int currentStation;
 
+    private int amountStation = 10;
+
     private int minVolume;
     private int maxVolume;
     private int currentVolume;
 
-    public void setMinStation(int minStation) {
-        this.minStation = minStation;
-    }
 
-    public void setMaxStation(int maxStation) {
+    public Radio(int minStation, int maxStation, int currentStation, int amountStation) {
+        this.minStation = minStation;
         this.maxStation = maxStation;
+        this.currentStation = currentStation;
+        this.amountStation = amountStation;
+
+        if (currentStation > maxStation)
+            this.currentStation = minStation;
+
+        if (currentStation < minStation)
+            this.currentStation = maxStation;
     }
 
     public int getCurrentStation() {
         return currentStation;
     }
 
-    public void setCurrentStation(int currentStation) {
-        if (currentStation > maxStation) {
-            return;
-        }
-        if (currentStation < minStation) {
-            return;
-        }
-        this.currentStation = currentStation;
-    }
 
     public int increaseStation() {
         if (currentStation < maxStation) {
@@ -52,14 +51,12 @@ public class Radio {
         return currentStation;
     }
 
-///////////////////Volume/////////////////
+    ///////////////////Volume/////////////////
 
-    public void setCurrentVolume(int currentVolume) {
-        this.currentVolume = currentVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
+    public Radio(int minVolume, int maxVolume, int currentVolume) {
+        this.minVolume = minVolume;
         this.maxVolume = maxVolume;
+        this.currentVolume = currentVolume;
     }
 
     public int increaseVolume() {
@@ -75,14 +72,16 @@ public class Radio {
 
     public int decreaseVolume() {
         if (currentVolume > minVolume) {
-            currentVolume --;
+            currentVolume--;
         }
         if (currentVolume == minVolume) {
             currentVolume = currentVolume;
         }
         return currentVolume;
+
     }
 }
+
 
 
 
